@@ -1,0 +1,99 @@
+/* .header{
+    background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.5)), url(../../images/Rectangle\ 1.png);
+    background-size: cover;
+    height: 100vh;
+    background-position:center;
+    background-repeat: no-repeat;
+} */
+.navbar-nav li a{
+    color: white !important;
+} 
+li{
+    padding-left: 60px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn{
+    margin-left:60px;
+    color:  black;
+}
+form {
+margin-left: 70px;
+width: 30%;
+background: rgba(61, 57, 57, 0.1);
+border-radius: 3px;
+}
+
+.logo{
+    height: 60px;
+    width:auto;
+    margin-left:80px;
+    filter: brightness(800%);
+}
+
+.home-text{
+    margin-left: 80px;
+}
+
+.home-btn{
+    width : 25%;
+    height: 11%;
+    background-color: orange;
+    border-radius: 5px;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid orange;
+    color: black;
+}
+
+.home-text p{
+    width: 460px;
+    word-wrap: break-word;
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(216, 199, 199);
+    font-weight: 20px;
+
+}
+.home-text h1{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 72px;
+    color: #fff;
+}
+.home-image img{
+    height: 350px;
+    width: 250px;
+    padding-left: 20px;
+    cursor: pointer;
+}
+.text-middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .text {
+    color: white;
+    font-size: 22px;
+    padding: 6px 66px;
+  }
+  
+.home-image img:hover{
+    opacity: 0.7;
+
+}
+/* .text-middle {
+    opacity: 1;
+  } */
+.home{
+    background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.5)), url(../../images/Rectangle\ 1.png);
+    background-size: cover;
+    height: 100vh;
+    background-position:center;
+    background-repeat: no-repeat;
+}

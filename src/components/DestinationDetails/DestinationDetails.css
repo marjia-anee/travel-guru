@@ -1,0 +1,20 @@
+.destination-details{
+    display: flex;
+    
+    background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.5)), url(../../images/Rectangle\ 1.png);
+    background-size: cover;
+    height: 100vh;
+    background-position:center;
+    background-repeat: no-repeat;
+
+}
+.info{
+    width: 500px;
+    word-wrap: break-word;
+    margin-left: 80px;
+    margin-top: 150px;
+    color: #fff;
+
+}
+.booking-info{
+}
