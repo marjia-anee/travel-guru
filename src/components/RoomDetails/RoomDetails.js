@@ -1,31 +1,31 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import room1 from '../../images/Rectangle 26.png';
 import room2 from '../../images/Rectangle 27.png';
 import room3 from '../../images/Rectangle 28.png';
 import './RoomDetails.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { useParams } from 'react-router-dom';
 import fakeData from '../../fakeData/fakeData';
+import { UserContext } from '../../App';
 
 
+const RoomDetails = () => {
 
 
+    const [loggedInUser] = useContext(UserContext);
 
-const Booking = () => {
+    const { roomId } = useParams();
 
-    const { bookingId } = useParams();
-
-    const data = fakeData;
-    data.find(destination => destination.id === bookingId)
+   fakeData.find(destination => destination.id === roomId);
 
 
     return (
         <div className = 'd-flex'>
             <div className="m-5 booking">
+    <p>Welcome <b> {loggedInUser.name}! </b> Your email: {loggedInUser.email}</p>
                 <p> <small> 252 stays Apr 13-17 3 guests</small></p>
-                {/* <h1>{data[bookingId].id}</h1> */}
-                <h3> <b>Stay in Cox's Bazar</b> </h3>
+                <h3> <b>Stay in {fakeData.title}</b> </h3>
                 <br />
                 <div className=" d-flex align-items-center">
                     <div>
@@ -81,4 +81,4 @@ const Booking = () => {
     );
 };
 
-export default Booking;
+export default RoomDetails;

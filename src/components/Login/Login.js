@@ -1,9 +1,12 @@
 import React, { useContext, useState } from 'react';
 import "firebase/auth";
 import { UserContext } from '../../App';
-import { Link, useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { createUserWithEmailAndPassword, handleFbSignIn, handleGoogleSignIn, handleSignOut, initializeLoginFramework, signInWithEmailAndPassword } from './loginManager';
 import './Login.css';
+import googleIcon from '../../images/Icon/google.png';
+import fbIcon from '../../images/Icon/fb.png';
+import { Button } from 'react-bootstrap';
 
 const Login = () => {
     const [newUser, setNewUser] = useState(false);
@@ -137,20 +140,22 @@ const Login = () => {
             }
 
             <input type="checkbox" onChange={() => setNewUser(!newUser)} name="newUser" id="" />
-
             <label htmlFor="newUser"> <strong>Don't have an account? Sign Up</strong> </label>
 
 
             <h5>Or</h5>
 
-            {
-                user.isSignedIn ? <button onClick={signOut} >Sign Out</button> :
-                    <button onClick={googleSignIn} style={{ borderRadius: '40px', backgroundColor: 'white', width: '25%', height: '40px' }}>  Continue with Google  </button>
+          
+            <Button onClick={googleSignIn}
+                style={{ alignItems: 'center', backgroundColor: '#fff', border: '1px solid gray', borderRadius: '40px',marginBottom: '10px',marginLeft: '20px', width: '24%', height: '40px', color: 'green' }}>
+                <img src={googleIcon} className="google-icon" alt="" /> Continue with Google  </Button>
 
-            }
+
             <br />
-            <br />
-            <Link to='' className="fb btn" onClick={fbSignIn} style={{ border: '1px solid black', borderRadius: '40px', width: '25%', marginBottom: '20px', height: '40px' }} >Continue with Facebook </Link>
+            <Button onClick={fbSignIn}
+                style={{ backgroundColor: '#fff', border: '1px solid gray', borderRadius: '40px', width: '24%', marginBottom: '20px', marginLeft: '20px', height: '40px', color: 'blue' }}>
+                <img src={fbIcon} className="fb-icon" alt="" />Continue with Facebook </Button>
+
 
             {
                 user.isSignedIn && <div>

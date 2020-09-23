@@ -23,7 +23,7 @@ export const Home = () => {
                 <h1>{bookings.title}</h1>
                 <p>{bookings.frontDesc}</p>
                 <br />
-                <Link to={"/destination/" + bookings.id}>
+                <Link to={"/booking/" + bookings.id}>
                     <button className="home-btn"> Booking </button> </Link>
 
 
@@ -35,9 +35,6 @@ export const Home = () => {
                         onLoad={() => handleBookLocation(pl)}
                         src={pl.img} key={pl.id} alt="" />)
                 }
-                <div className="text-middle">
-                    <div className="text">{bookings.title}</div>
-                </div>
 
             </div>
 

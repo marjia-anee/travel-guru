@@ -24,13 +24,13 @@ const Header = () => {
                         <Link to="/home"> Home</Link>
                     </li>
                     <li>
-                        <Link to="/destination">Destination</Link>
+                        <Link to="/home">Destination</Link>
                     </li>
                     <li>
-                        <Link to="/blog">Blog</Link>
+                        <Link to="/home">Blog</Link>
                     </li>
                     <li>
-                        <Link to="/contact">Contact</Link>
+                        <Link to="/home">Contact</Link>
                     </li>
 
                     <Button className="btn" variant="warning">Search</Button>

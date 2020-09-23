@@ -3,10 +3,10 @@ import { Button, Form } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import fakeData from '../../fakeData/fakeData';
-import './DestinationDetails.css';
+import './Booking.css';
 
 
-const DestinationDetails = () => {
+const Booking = () => {
 
 
     const { bookingId } = useParams();
@@ -17,14 +17,10 @@ const DestinationDetails = () => {
     const [startDate, setStartDate] = useState(new Date("2020/09/01"));
     const [endDate, setEndDate] = useState(new Date("2020/09/30"));
 
-    // // let info = location;
-    // info.find(destination => destination.id === bookingId)
-    // console.log(info[bookingId].id)
-
 
     return (
         <div className="destination-details" >
-            <div className = "destination-info">
+            <div className="destination-info">
                 <h1>{data[bookingId].title}</h1>
                 <p>{data[bookingId].description}</p>
             </div>
@@ -49,9 +45,11 @@ const DestinationDetails = () => {
 
                         <DatePicker
                             selected={startDate}
+
                             onChange={date => setStartDate(date)}
                             selectsStart
                             startDate={startDate}
+
                             endDate={endDate}
                         />
                         <br />
@@ -66,14 +64,15 @@ const DestinationDetails = () => {
                             minDate={startDate}
                         />
                     </Form.Group>
-                    <Link to="/roomDetails">
+                    <Link to={"/roomDetails:" + data[bookingId].id}>
                         <Button variant="warning" type="submit" className="m-2 form-control"> Start Booking </Button>
                     </Link>
 
                 </Form>
+                
             </div>
         </div>
     );
 };
 
-export default DestinationDetails;
+export default Booking;
