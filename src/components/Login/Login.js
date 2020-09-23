@@ -15,8 +15,8 @@ const Login = () => {
         name: '',
         email: '',
         password: '',
-        photo: ''
     });
+
     initializeLoginFramework();
 
 
@@ -30,6 +30,8 @@ const Login = () => {
             .then(res => {
                 handleResponse(res, true)
             })
+        console.log(handleGoogleSignIn);
+
     }
 
     const fbSignIn = () => {
@@ -52,7 +54,6 @@ const Login = () => {
         if (redirect) {
             history.replace(from);
 
-            // history.push('/booking')
 
         }
     }
@@ -83,6 +84,7 @@ const Login = () => {
             setUser(newUserInfo);
         }
     }
+
     const handleSubmit = (e) => {
 
 
@@ -127,7 +129,7 @@ const Login = () => {
                 <br />
                 <br />
                 {
-                    newUser && <input type='password' name='password' onBlur={handleBlur} placeholder='confirm password' className='long' />
+                    newUser && <input type='password' name='password' onBlur={handleBlur} placeholder='Confirm password' />
                 }
                 <br />
                 <br />
@@ -155,6 +157,8 @@ const Login = () => {
             <Button onClick={fbSignIn}
                 style={{ backgroundColor: '#fff', border: '1px solid gray', borderRadius: '40px', width: '24%', marginBottom: '20px', marginLeft: '20px', height: '40px', color: 'blue' }}>
                 <img src={fbIcon} className="fb-icon" alt="" />Continue with Facebook </Button>
+
+
         </div>
     );
 };

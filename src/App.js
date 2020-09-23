@@ -38,7 +38,7 @@ function App() {
             <Header />
             <Login></Login>
           </Route>
-          <PrivateRoute path="/roomDetails:roomId">
+          <PrivateRoute path="/roomDetails">
             <Header />
             <RoomDetails />
           </PrivateRoute>

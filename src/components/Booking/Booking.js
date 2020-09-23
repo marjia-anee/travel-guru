@@ -64,7 +64,7 @@ const Booking = () => {
                             minDate={startDate}
                         />
                     </Form.Group>
-                    <Link to={"/roomDetails:" + data[bookingId].id}>
+                    <Link to="/roomDetails" >
                         <Button variant="warning" type="submit" className="m-2 form-control"> Start Booking </Button>
                     </Link>
 
