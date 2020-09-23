@@ -11,18 +11,18 @@ import DestinationDetails from './components/DestinationDetails/DestinationDetai
 import Header from './components/Header/Header';
 import Login from './components/Login/Login';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-import Booking from './components/Booking/Booking';
+import RoomDetails from './components/RoomDetails/RoomDetails';
 
 
 export const UserContext = createContext();
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
+  
   return (
     <UserContext.Provider value =  {[loggedInUser, setLoggedInUser]}>
+           <p>Name: {loggedInUser.name}</p>
 
-      <p>Name: {loggedInUser.name}</p>
-     
     <Router>
       <Switch>
         <Route path="/home">
@@ -37,10 +37,10 @@ function App() {
           <Header/>
           <DestinationDetails />
         </Route>
-        <Route path="/booking">
+        <PrivateRoute path="/roomDetails">
           <Header/>
-          <Booking></Booking>
-        </Route>
+          <RoomDetails />
+        </PrivateRoute>
         <Route exact path="/">
         <Header/>
           <Home />

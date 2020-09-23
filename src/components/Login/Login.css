@@ -1,4 +1,13 @@
+.login-page{
+    margin-top: 20px;
+}
+.login-page h1{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 52px;
+}
 .form-style{
-    margin-left: 35%;
-    padding: 30px;
+    border: 1px solid black;
+    width : 30%;
+    margin : 30px auto;
+    padding : 20px;
 }

@@ -1,8 +1,11 @@
 import React from 'react';
-import { Button, Form, FormControl, Nav, Navbar } from 'react-bootstrap';
+import { Button, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import logo from '../../images/Logo.png';
 import './Header.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+
 
 
 const Header = () => {
@@ -10,9 +13,11 @@ const Header = () => {
         <div className="header">
             <Navbar sticky="top" bg="dark" variant="light">
                 <img className="logo" src={logo} alt="" />
-                <Form>
-                    <FormControl type="text" placeholder="Search your Destination..." className="mr-sm-2" />
-                </Form>
+               
+                
+                <FontAwesomeIcon className = "search-icon" icon={faSearch} /> 
+                <input type="text" placeholder="        Search your Destination..." className="search-box"  />
+             
                 <Nav className="ml-auto px-5">
 
                     <li>

@@ -1,10 +1,9 @@
 import React, { useContext, useState } from 'react';
 import "firebase/auth";
 import { UserContext } from '../../App';
-import { useHistory, useLocation } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import { createUserWithEmailAndPassword, handleFbSignIn, handleGoogleSignIn, handleSignOut, initializeLoginFramework, signInWithEmailAndPassword } from './loginManager';
 import './Login.css';
-
 
 const Login = () => {
     const [newUser, setNewUser] = useState(false);
@@ -46,7 +45,7 @@ const Login = () => {
 
     const handleResponse = (res, redirect) => {
         setUser(res)
-        setLoggedInUser(res);
+        setLoggedInUser({ ...res, name: res.displayName });
         if (redirect) {
             history.replace(from);
 
@@ -69,7 +68,7 @@ const Login = () => {
             isFieldValid = (isPasswordValid && passwordHasNumber);
             if (newUser) {
                 if (!isPasswordValid) {
-                    alert("Please enter minimum 6 character with a number value");
+                    alert("Please enter minimum 6 character with number value");
                 }
             }
 
@@ -95,6 +94,8 @@ const Login = () => {
         if (!newUser && user.email && user.password) {
             signInWithEmailAndPassword(user.email, user.password)
                 .then(res => {
+
+                    console.log(res);
                     handleResponse(res, true)
                 })
         }
@@ -105,53 +106,58 @@ const Login = () => {
 
 
     return (
-        <div style={{ textAlign: 'center' }}>
+        <div className="login-page" style={{ textAlign: 'center' }}>
 
-            <h1>Login: </h1>
+            <form className="form-style " onSubmit={handleSubmit}>
+                <h1 > {newUser ? 'Create an account' : 'Log In'}</h1>
 
-
-            <form className="form-style" onSubmit={handleSubmit}>
-                {newUser && <input name="name" type="text" onBlur={handleBlur} placeholder="Your name" />
+                {
+                    newUser && <input name="name" type="text" onBlur={handleBlur} placeholder="Your name" />
                 }
                 <br />
-                <br/>
-                <input type="text" name="email" onBlur={handleBlur} placeholder="Enter email address" required />
+                <br />
+                <input type="email" name="email" onBlur={handleBlur} placeholder="Enter email address" required />
 
                 <br />
                 <br />
                 <input type="password" name="password" onBlur={handleBlur} placeholder="Password" required />
                 <br />
                 <br />
+                {
+                    newUser && <input type='password' name='password' onBlur={handleBlur} placeholder='confirm password' className='long' />
+                }
+                <br />
+                <br />
                 <input type="submit" value={newUser ? 'Sign Up' : 'Sign In'} />
             </form>
+
             <p style={{ color: 'red' }}>{user.error}</p>
-            {user.success && <p style={{ color: 'green' }}>User {newUser ? 'Created' : 'Logged in'} Successfully</p>
+            {
+                user.success && <p style={{ color: 'green' }}>User {newUser ? 'Created' : 'Logged in'} Successfully</p>
             }
 
             <input type="checkbox" onChange={() => setNewUser(!newUser)} name="newUser" id="" />
 
             <label htmlFor="newUser"> <strong>Don't have an account? Sign Up</strong> </label>
-            <br />
+
 
             <h5>Or</h5>
-            <br />
+
             {
                 user.isSignedIn ? <button onClick={signOut} >Sign Out</button> :
-                    <button onClick={googleSignIn} >Continue with Google</button>
+                    <button onClick={googleSignIn} style={{ borderRadius: '40px', backgroundColor: 'white', width: '25%', height: '40px' }}>  Continue with Google  </button>
 
             }
             <br />
-            <button onClick={fbSignIn}>Continue in using Facebook</button>
+            <br />
+            <Link to='' className="fb btn" onClick={fbSignIn} style={{ border: '1px solid black', borderRadius: '40px', width: '25%', marginBottom: '20px', height: '40px' }} >Continue with Facebook </Link>
+
             {
                 user.isSignedIn && <div>
                     <p> Welcome, {user.name}</p>
                     <p>Your email: {user.email}</p>
-                    <img src={user.photo} alt="" />
                 </div>
             }
-
-
-
 
         </div>
     );

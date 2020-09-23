@@ -24,14 +24,14 @@ const DestinationDetails = () => {
 
     return (
         <div className="destination-details" >
-            <div className = "info">
+            <div className = "destination-info">
                 <h1>{data[bookingId].title}</h1>
                 <p>{data[bookingId].description}</p>
             </div>
 
 
             <div>
-                <Form className="booking-info bg-transparent p-5">
+                <Form className="booking-info bg-light p-5 m-5">
                     <Form.Group controlId="formBasicOrigin">
                         <Form.Label>Origin</Form.Label>
                         <Form.Control type="text" placeholder="Your Origin" />
@@ -66,8 +66,8 @@ const DestinationDetails = () => {
                             minDate={startDate}
                         />
                     </Form.Group>
-                    <Link to="/booking">
-                        <Button variant="warning" type="submit" className="m-4 form-control"> Start Booking </Button>
+                    <Link to="/roomDetails">
+                        <Button variant="warning" type="submit" className="m-2 form-control"> Start Booking </Button>
                     </Link>
 
                 </Form>
