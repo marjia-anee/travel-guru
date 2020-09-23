@@ -10,13 +10,6 @@
     filter: brightness(800%);
 }
 
-/* .header{
-    background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.5)), url(../../images/Rectangle\ 1.png);
-    background-size: cover;
-    height: 100vh;
-    background-position:center;
-    background-repeat: no-repeat;
-} */
 .navbar-nav li a{
     color: white !important;
 } 
@@ -30,13 +23,6 @@ li{
     margin-left:60px;
     color:  black;
 }
-/* form {
-margin-left: 70px;
-width: 30%;
-background: rgba(61, 57, 57, 0.1);
-border-radius: 3px;
-} */
-
 
 .search-icon{
     color: #fff;

@@ -14,8 +14,8 @@ const Booking = () => {
     const data = fakeData;
     data.find(destination => destination.id === bookingId)
 
-    const [startDate, setStartDate] = useState(new Date("2020/09/01"));
-    const [endDate, setEndDate] = useState(new Date("2020/09/30"));
+    const [startDate, setStartDate] = useState(new Date("2020/10/01"));
+    const [endDate, setEndDate] = useState(new Date("2020/10/30"));
 
 
     return (

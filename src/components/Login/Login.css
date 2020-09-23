@@ -24,3 +24,13 @@
     margin-right: 30%;
     
 }
+.signIn-button{
+    width : 25%;
+    height: 10%;
+    background-color: orange;
+    border-radius: 5px;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid orange;
+    color: black;
+}

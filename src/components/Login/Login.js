@@ -131,7 +131,7 @@ const Login = () => {
                 }
                 <br />
                 <br />
-                <input type="submit" value={newUser ? 'Sign Up' : 'Sign In'} />
+                <input type="submit" className="signIn-button" value={newUser ? 'Sign Up' : 'Sign In'} />
             </form>
 
             <p style={{ color: 'red' }}>{user.error}</p>
@@ -145,9 +145,9 @@ const Login = () => {
 
             <h5>Or</h5>
 
-          
+
             <Button onClick={googleSignIn}
-                style={{ alignItems: 'center', backgroundColor: '#fff', border: '1px solid gray', borderRadius: '40px',marginBottom: '10px',marginLeft: '20px', width: '24%', height: '40px', color: 'green' }}>
+                style={{ alignItems: 'center', backgroundColor: '#fff', border: '1px solid gray', borderRadius: '40px', marginBottom: '10px', marginLeft: '20px', width: '24%', height: '40px', color: 'green' }}>
                 <img src={googleIcon} className="google-icon" alt="" /> Continue with Google  </Button>
 
 
@@ -155,15 +155,6 @@ const Login = () => {
             <Button onClick={fbSignIn}
                 style={{ backgroundColor: '#fff', border: '1px solid gray', borderRadius: '40px', width: '24%', marginBottom: '20px', marginLeft: '20px', height: '40px', color: 'blue' }}>
                 <img src={fbIcon} className="fb-icon" alt="" />Continue with Facebook </Button>
-
-
-            {
-                user.isSignedIn && <div>
-                    <p> Welcome, {user.name}</p>
-                    <p>Your email: {user.email}</p>
-                </div>
-            }
-
         </div>
     );
 };
